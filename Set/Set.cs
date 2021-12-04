@@ -35,38 +35,89 @@ namespace Set
             ISet<T> result = new Set<T>();
 
             // do the work
+            foreach (var item in s1)
+            {
+                if (s2.Contains(item))
+                {
+                    result.Add(item);
+                }
+            }
 
-            return result;
+
+
+                return result;
         }
 
         public static ISet<T> Union(ISet<T> s1, ISet<T> s2)
         {
-            return null;
+            ISet<T> result = new Set<T>();
+
+            foreach(var item in s1)
+            {
+                if (s2.Contains(item))
+                {
+                    result.Add(item);
+                }
+            }
+
+
+            return result;
         }
 
-        public void Add(ISet<T> s)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public void Add(T value)
         {
-            throw new NotImplementedException();
+            
+
+            this.Add(value);
         }
+        public void Add(ISet<T> s)
+        {
+            foreach (var item in s)
+            {
+                this.Add(item);
+            }
+
+        }
+
 
         public bool Contains(T value)
         {
-            throw new NotImplementedException();
+            if (this.Contains(value))
+            {
+                return true;
+            }
+            return false;
         }
 
         public void Remove(ISet<T> s)
         {
-            throw new NotImplementedException();
+            ISet<T> result = new Set<T>();
+
+            foreach (var item in this)
+            {
+                if (!s.Contains(item))
+                {
+                    result.Add(item);
+                }
+                
+            }
         }
 
         public void Remove(T value)
         {
-            throw new NotImplementedException();
+            ISet<T> result = new Set<T>();
+
+            foreach (var item in this)
+            {
+                if(!item.Equals(value))
+                {
+                    result.Add(item);
+                }
+                
+            }
+            
         }
 
         IEnumerator IEnumerable.GetEnumerator()
