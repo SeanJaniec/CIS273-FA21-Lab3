@@ -34,20 +34,33 @@ namespace MeanMode
         private static double? computeMode(int[] array)
         {
 
-            return null;
-
-/*            Hashtable my_hashtable1 = new Hashtable();
-            int count = 1;
-            foreach (int num in array)
+            int count = 0;
+            int mode = 0;
+            int mode_count = 0;
+            /*Hashtable my_hashtable1 = new Hashtable();*/
+            
+           /* foreach (int num in array)
             {
                 my_hashtable1.Add(num, count);
                 count++;
-            }
-
-            foreach (var item in my_hashtable1)
-            {
-                if(my_hashtable1.ContainsKey())
             }*/
+
+            foreach (int num in array)
+            {
+                count++;
+                    
+                if(num != mode)
+                {
+                    if(mode_count < count)
+                    {
+                        mode = num;
+                        mode_count = count;
+                        count = 0;
+
+                    }
+                }
+            }
+            return mode;
 
 
 

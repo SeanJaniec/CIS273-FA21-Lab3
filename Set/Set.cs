@@ -54,10 +54,13 @@ namespace Set
 
             foreach(var item in s1)
             {
-                if (s2.Contains(item))
-                {
-                    result.Add(item);
-                }
+                result.Add(item);
+                
+            }
+            foreach (var item in s2)
+            {
+                result.Add(item);
+
             }
 
 
@@ -70,13 +73,13 @@ namespace Set
         {
             
 
-            this.Add(value);
+            hashSet.Add(value);
         }
         public void Add(ISet<T> s)
         {
             foreach (var item in s)
             {
-                this.Add(item);
+                hashSet.Add(item);
             }
 
         }
@@ -84,7 +87,7 @@ namespace Set
 
         public bool Contains(T value)
         {
-            if (this.Contains(value))
+            if (hashSet.Contains(value))
             {
                 return true;
             }
@@ -93,30 +96,20 @@ namespace Set
 
         public void Remove(ISet<T> s)
         {
-            ISet<T> result = new Set<T>();
+            
 
-            foreach (var item in this)
+            foreach (var item in s)
             {
-                if (!s.Contains(item))
-                {
-                    result.Add(item);
-                }
+                hashSet.Remove(item);
                 
             }
         }
 
         public void Remove(T value)
         {
-            ISet<T> result = new Set<T>();
 
-            foreach (var item in this)
-            {
-                if(!item.Equals(value))
-                {
-                    result.Add(item);
-                }
-                
-            }
+
+            hashSet.Remove(value);
             
         }
 

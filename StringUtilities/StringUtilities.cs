@@ -12,7 +12,7 @@ namespace StringUtilities
             var cleanString = Regex.Replace(s, @"[\s+]", "").ToLower();
 
             // make a hash table/set
-/*            Hashtable my_hashtable1 = new Hashtable();
+            Hashtable my_hashtable1 = new Hashtable();
             int num = 1;
             foreach ( char c in cleanString)
             {
@@ -21,11 +21,22 @@ namespace StringUtilities
             }
             foreach (var item in my_hashtable1)
             {
+                var Item = item;
+                my_hashtable1.Remove(item);
+                if (my_hashtable1.Contains(Item))
+                {
+                    return false;
+                }
 
-            }*/
+/*                if (my_hashtable1.Contains(item))
+                {
+                    return false;
+                }*/
+
+            }
                 
 
-            return false;
+            return true;
         }
     }
 }

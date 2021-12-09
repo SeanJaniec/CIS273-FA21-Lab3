@@ -65,12 +65,15 @@ namespace TextualAnalysis
         public static Dictionary<string, int> ComputeWordFrequenciesFromFile(string path, bool ignoreStopWords = false)
         {
             // read in the file
+            string Path = path;
+
 
             // call the other method
+            var result = ComputeWordFrequencies(Path, ignoreStopWords);
 
             // return the result of the other method
 
-            return null;
+            return result;
         }
 
         private static string[] GetStopWordsFromFile(string path)
